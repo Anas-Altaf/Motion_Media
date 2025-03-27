@@ -1,0 +1,25 @@
+[project]
+name = "media-motion"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Anas Altaf",email = "anasaltaf35@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dependencies = [
+    "opencv-python (>=4.11.0.86,<5.0.0.0)",
+    "pyautogui (>=0.9.54,<0.10.0)",
+    "speechrecognition (>=3.14.2,<4.0.0)",
+    "pycaw (>=20240210,<20240211)",
+    "pyaudio (>=0.2.14,<0.3.0)",
+    "mediapipe (>=0.10.21,<0.11.0)"
+]
+
+[tool.poetry]
+packages = [{include = "media_motion", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
