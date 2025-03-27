@@ -75,15 +75,24 @@ class MediaController:
         cv2.destroyAllWindows()
     
     def _display_status(self, frame):
-        """Display the status of each control mode on the frame."""
+        """Display the status of each control mode in the bottom-left corner of the frame."""
         status_text = [
             f"Gesture: {'ON' if self.control_modes['gesture'] else 'OFF'}",
             f"Face: {'ON' if self.control_modes['face'] else 'OFF'}",
             f"Voice: {'ON' if self.control_modes['voice'] else 'OFF'}"
         ]
         
-        for i, text in enumerate(status_text):
-            cv2.putText(frame, text, (10, 30 + i*30), 
+        # Get frame height
+        height, _, _ = frame.shape
+        
+        # Calculate starting y-position from bottom
+        # Leave a margin of 30 pixels from the bottom
+        base_y_position = height - 30
+        
+        # Draw text from bottom up (reverse order)
+        for i, text in enumerate(reversed(status_text)):
+            y_position = base_y_position - i*30
+            cv2.putText(frame, text, (10, y_position), 
                         cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
     
     def _handle_keyboard_input(self):

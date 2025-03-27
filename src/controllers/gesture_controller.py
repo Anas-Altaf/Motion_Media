@@ -104,7 +104,7 @@ class GestureController:
             # Display gesture information on frame
             confidence = int(gesture_score * 100)
             emoji = self._get_gesture_emoji(gesture_name)
-            cv2.putText(frame, f"Gesture: {gesture_name} {emoji} ({confidence}%)", (10, 70),
+            cv2.putText(frame, f"Gesture: {gesture_name} ({confidence}%)", (50, 50),
                       cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2)
             
             # For debugging - show if this gesture is a toggle action
@@ -246,10 +246,12 @@ class GestureController:
             print("Action: Screenshot")
             
         elif gesture_name == "Pointing_Up":  # ☝️
-            self.audio_controller.increase_volume(VOLUME_SENSITIVITY)  # Volume up
+            # self.audio_controller.increase_volume(VOLUME_SENSITIVITY)  # Volume up
+            pyautogui.press("up")
             print("Action: Volume Up")
             
         elif gesture_name == "Closed_Fist":  # ✊
-            self.audio_controller.decrease_volume(VOLUME_SENSITIVITY)  # Volume down
+            # self.audio_controller.decrease_volume(VOLUME_SENSITIVITY)  # Volume down
+            pyautogui.press("down")
             print("Action: Volume Down")
 
