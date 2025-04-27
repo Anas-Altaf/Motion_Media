@@ -9,7 +9,7 @@ VOLUME_SENSITIVITY = 0.1
 GESTURE_COOLDOWN = 0.7  # Slightly faster cooldown for regular gestures
 
 # Path to the MediaPipe gesture recognizer model
-MODEL_PATH = os.path.join(os.path.dirname(__file__), "../models/gesture_recognizer.task")
+MODEL_PATH =  "models/gesture_recognizer.task"
 
 # Default control mode settings
 DEFAULT_CONTROL_MODES = {
